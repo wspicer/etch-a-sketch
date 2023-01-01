@@ -6,9 +6,10 @@ function buildBoard (num) {
     for (i=0; i<num**2; i++) {
         let divSquare = document.createElement('div');
         numberOfDivs = num**2;
-        divSquare.className = "drawingDiv" + i;
-        divSquare.setAttribute("id", "drawingDivs");
+        divSquare.className = "drawingDiv";
+        divSquare.setAttribute("id", "drawingDivs" + i);
         containerDiv.appendChild(divSquare);
+        
     }
    
 
@@ -26,3 +27,14 @@ the function that is called is to return the div child element and
 change the color of the div element to the color pen selected. using the 
 event.target.style.color JS pseudo CSS. */
 
+//Query All classes that have the drawingDiv class and for each item, have an item
+//listener that listens for the mouse over. Then, the event that happens is to change
+//the color of the background of that item that was hovered
+
+function drawOnGrid () {
+    document.querySelectorAll('.drawingDiv').forEach(item => {
+        item.addEventListener('mouseover', event => {
+            item.style.backgroundColor = "black";
+        })
+        })
+};

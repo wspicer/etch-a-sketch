@@ -2,7 +2,7 @@
 
 //Append the child divs to the parent container 256 times of 1px boxes.
 function buildBoard (num) {
-    
+    let numberOfSquares = num
     for (i=0; i<num**2; i++) {
         let divSquare = document.createElement('div');
         numberOfDivs = num**2;
@@ -11,6 +11,9 @@ function buildBoard (num) {
         containerDiv.appendChild(divSquare);
         
     }
+    keepSquaresEven(numberOfSquares);
+
+    
    
 
 };
@@ -36,5 +39,42 @@ function drawOnGrid () {
         item.addEventListener('mouseover', event => {
             item.style.backgroundColor = "black";
         })
+        })
+};
+
+function keepSquaresEven (num) {
+    
+        document.querySelectorAll('.drawingDiv').forEach(item => {
+                item.style.width = (800/num) + "px";
+                item.style.height = (800/num) + "px";
+            })
+    };
+
+    /*Call a function that can reload the page with a new number in the drawBoard function*/
+/*function gridPrompt() {
+    let promptQuestion = prompt("Choose the number of squares you'd like on the grid. Only choose numbers and not greater than 100");
+    if (promptQuestion != Number ) {
+         
+          return 16;
+          
+    } else if (promptQuestion > 100 || promptQuestion < 1) {
+        
+        return 16;
+        
+    }
+    else {
+        
+        return promptQuestion;
+        
+    };
+    
+};
+*/
+
+//Delete previous divs and rebuild them
+
+function removeGrid() {
+    document.querySelectorAll('.drawingDiv').forEach(item => {
+            item.remove();
         })
 };

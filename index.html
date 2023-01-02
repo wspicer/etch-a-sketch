@@ -10,6 +10,7 @@
 </head>
 <body>
     <h1>Etch-a-Sketch</h1>
+    <button onclick="gridPrompt()">Change the number of Squares</button>
     <div id="main-container">
         <div id="container"></div>
     </div>
@@ -18,10 +19,32 @@
         let containerDiv = document.getElementById("container");
         let numberOfDivs;
         let drawingDivSquares = document.getElementsByClassName("drawingDiv");
+        let numberOfSquaresOnGrid = 16;
         
-        
-        buildBoard(16);
+
+        buildBoard(numberOfSquaresOnGrid);
         drawOnGrid();
+        
+        function gridPrompt() {
+            let promptQuestion = prompt("Choose the number of squares you'd like on the grid. Only choose numbers and not greater than 100");
+            if (isNaN(promptQuestion)) {
+                
+            } else if (promptQuestion > 100 || promptQuestion < 1) {
+
+                
+            } else {
+                
+                numberOfSquaresOnGrid = promptQuestion;
+                removeGrid();
+                console.log(numberOfSquaresOnGrid);
+                buildBoard(numberOfSquaresOnGrid);
+                drawOnGrid();
+                
+            };
+    
+}
+
+            
         
 
    </script>

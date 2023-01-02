@@ -10,7 +10,9 @@
 </head>
 <body>
     <h1>Etch-a-Sketch</h1>
-    <button onclick="gridPrompt()">Change the number of Squares</button>
+    <div class="myBtn">
+        <button onclick="gridPrompt()">Change the number of Squares</button>
+    </div>
     <div id="main-container">
         <div id="container"></div>
     </div>
@@ -24,7 +26,8 @@
 
         buildBoard(numberOfSquaresOnGrid);
         drawOnGrid();
-        
+        //handles the button function to destroy the initial grid and rebuild the grid
+        //with the user input in the prompt box as the grid size
         function gridPrompt() {
             let promptQuestion = prompt("Choose the number of squares you'd like on the grid. Only choose numbers and not greater than 100");
             if (isNaN(promptQuestion)) {
